@@ -10,7 +10,7 @@ export class AuthenticationService {
 
   constructor(private httpClient: HttpClient) {}
 
-  authenticate(user: string, password: string): Observable<any> {
+  authenticate(user?: string, password?: string): Observable<any> {
     return this.httpClient.post(this.url, {
       userName: user,
       password: password,

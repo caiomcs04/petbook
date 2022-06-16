@@ -1,12 +1,46 @@
 <h4 class="text-center">Login</h4>
 
-<form class="form mt-4">
+<form class="form mt-4" (ngSubmit)="login()" #loginForm="ngForm">
   <section class="mb-3">
-    <input class="form-control" placeholder="Nome do usuário" type="text" />
+    <input
+      class="form-control"
+      placeholder="Nome do usuário"
+      type="text"
+      [(ngModel)]="userName"
+      name="userName"
+      #userNameInput="ngModel"
+      required
+    />
+    <petbook-mensage
+      *ngIf="userNameInput.invalid && userNameInput.touched"
+      mensage="Usuário Obrigatório"
+    ></petbook-mensage>
   </section>
   <section class="mb-3">
-    <input type="password" placeholder="senha" class="form-control" />
+    <input
+      type="password"
+      placeholder="Senha"
+      class="form-control"
+      [(ngModel)]="password"
+      name="password"
+      #passwordInput="ngModel"
+      required
+    />
+    <petbook-mensage
+    *ngIf="!userValid"
+    mensage="Usuário ou Senha"
+  ></petbook-mensage>
   </section>
 
-  <button class="btn btn-primary col-12">Login</button>
+  <button
+    class="btn btn-primary col-12"
+    type="submit"
+    [disabled]="loginForm.invalid"
+  >
+    Login
+  </button>
 </form>
+
+<p>Não é um usuário?
+<a [routerLink]="['novousuario']">Se cadastre!</a>
+</p>
