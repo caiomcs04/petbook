@@ -12,7 +12,7 @@
 
 > Clone this project in your machine with the command:
 > ```
-> 	git clone [[https://github.com/caiomcs04/react-form.git](https://github.com/caiomcs04/bytebank.git)]
+> 	git clone [(https://github.com/caiomcs04/petbook.git)]
 > ```
 >Access your terminal project folder:
 > ```
@@ -30,12 +30,12 @@ The project is already automatically reloaded according to the changes you make 
 
 ## Simulated Back-end
 
-Run `npm install -g json-server` to globally install the json server. After installation, enter the project folder "dados"  and run `json-server --watch db.json` in terminal, with that a server will be initialized at the url `http://localhost:3000/`, after initialization it will be possible to make http requests.
+in peetbook/api/api folder, execute the cmd comand npm start.
 
 ## Functionalities
 
 > This project aims at the functionality of being: 
-> - of a basic form using angular to post and get a local data base, focused on programming practice
+> A sample of a basic login page with authentication and register form, focused on programming practice
 
 ## Authors
 
