@@ -1,10 +1,10 @@
-<header class="sticky-top">
+<header class="sticky-top m-2">
   <nav class="navbar navbar-light bg-white">
-    <a class="navbar-brand">PeetBook</a>
+    <a class="navbar-brand"><b>PeetBook</b></a>
     <section *ngIf="user$ | async as user">
       <article *ngIf="user.name; else login">
-        <i class="fa fa-user-circle mr-1"></i>
-        <a class="mr-1">{{ user.name }}</a>
+        <i class="fa fa-user-circle me-2"></i>
+        <a class="me-2">{{ user.name }}</a>
         <a (click)="logOut()">Logout</a>
       </article>
     </section>
