@@ -1,20 +1,65 @@
 <h4 class="text-center">Registre-se e mostre seu pet!</h4>
 
-<form class="form mt-4">
+<form class="form mt-4" [formGroup]="novoUsuarioForm" (submit)="cadastrar()">
   <section class="mb-3">
-    <input placeholder="Email" type="text" class="form-control" />
+    <input
+      placeholder="Email"
+      type="text"
+      class="form-control"
+      formControlName="email"
+    />
+    <petbook-mensage
+    *ngIf="novoUsuarioForm.get('email')?.errors?.['required'] && novoUsuarioForm.get('email')?.touched"
+    mensage="E-mail Obrigatório"
+  ></petbook-mensage>
+  <petbook-mensage
+  *ngIf="novoUsuarioForm.get('email')?.errors?.['email'] && novoUsuarioForm.get('email')?.touched"
+  mensage="E-mail incorreto"
+></petbook-mensage>
   </section>
 
   <section class="mb-3">
-    <input placeholder="Nome Completo" type="text" class="form-control" />
+    <input
+      placeholder="Nome Completo"
+      type="text"
+      class="form-control"
+      formControlName="fullName"
+    />
+    <petbook-mensage
+    *ngIf="novoUsuarioForm.get('fullName')?.errors && novoUsuarioForm.get('fullName')?.touched"
+    mensage="Nome incorreto"
+  ></petbook-mensage>
   </section>
 
   <section class="mb-3">
-    <input placeholder="Usuário" type="text" class="form-control" />
+    <input
+      placeholder="Usuário"
+      type="text"
+      class="form-control"
+      formControlName="userName"
+    />
+    <petbook-mensage
+    *ngIf="novoUsuarioForm.get('userName')?.errors?.['minusculo'] && novoUsuarioForm.get('userName')?.touched"
+    mensage="Usuário somente letras minúsculuas"
+  ></petbook-mensage>
+
+  <petbook-mensage
+  *ngIf="novoUsuarioForm.get('userName')?.errors?.['usuarioExistente'] && novoUsuarioForm.get('userName')?.touched"
+  mensage="Usuário já existe"
+></petbook-mensage>
   </section>
 
   <section class="mb-3">
-    <input placeholder="Senha" type="text" class="form-control" />
+    <input
+      placeholder="Senha"
+      type="text"
+      class="form-control"
+      formControlName="password"
+    />
+    <petbook-mensage
+    *ngIf="novoUsuarioForm.errors?.['userEqualsPassword']"
+    mensage="Senha deve ser diferente do usuário"
+  ></petbook-mensage>
   </section>
 
   <button class="btn btn-primary col-12" type="submit">Registrar</button>
