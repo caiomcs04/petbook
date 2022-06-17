@@ -1,1 +1,17 @@
-<p>cabecalho works!</p>
+<header class="sticky-top">
+  <nav class="navbar navbar-light bg-white">
+    <a class="navbar-brand">PeetBook</a>
+    <section *ngIf="user$ | async as user">
+      <article *ngIf="user.name; else login">
+        <i class="fa fa-user-circle mr-1"></i>
+        <a class="mr-1">{{ user.name }}</a>
+        <a (click)="logOut()">Logout</a>
+      </article>
+    </section>
+  </nav>
+  <ng-template #login>
+    <span class="navbar-text">
+      <a [routerLink]="['']">Login</a>
+    </span>
+  </ng-template>
+</header>
